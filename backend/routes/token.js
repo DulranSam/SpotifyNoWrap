@@ -72,8 +72,7 @@ router.route("/artist").get(async (req, res) => {
 router.route("/tracks").get((req, res) => {
   async (req, res) => {
     try {
-      const accessToken =
-        "BQBkfx48dKzvDj1-z-iArZfLT-da8BUbYxD9b7QbZsie1O4q3ezGL5GNbKXoNa3gDHuwAp5uZgi3psp8qbBG1PCA_P8Co3Hc6svPS0DCWXwPSf-k2L8";
+      const { accessToken } = req.params;
 
       const artistResponse = await Axios.get(
         "https://api.spotify.com/v1/me/top/tracks",
