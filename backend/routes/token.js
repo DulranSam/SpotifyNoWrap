@@ -53,9 +53,9 @@ router.route("/artist").get(async (req, res) => {
           Authorization: `Bearer  ${accessToken}`,
         },
       }
-    );
-
-    res.json(artistResponse.data);
+    ).then((r) => {
+      res.json(r.data);
+    });
   } catch (error) {
     console.error(error);
 
@@ -82,9 +82,9 @@ router.route("/tracks").get((req, res) => {
             Authorization: `Bearer  ${accessToken}`,
           },
         }
-      );
-
-      res.json(artistResponse.data);
+      ).then((r) => {
+        res.json(r.data);
+      });
     } catch (error) {
       console.error(error);
 
