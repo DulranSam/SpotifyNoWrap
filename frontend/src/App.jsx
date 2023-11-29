@@ -30,8 +30,13 @@ function App() {
         params: {
           accessToken: token,
         },
-      });
-      setData(response.data);
+      })
+        .then((r) => {
+          setData(r.data);
+        })
+        .catch((e) => {
+          setData(e);
+        });
     } catch (err) {
       console.error(err);
     } finally {
@@ -76,6 +81,7 @@ function App() {
         <button type="submit" disabled={loading}>
           {loading ? "Loading..." : "Get Track Data"}
         </button>
+        <p>{JSON.stringify(data)}</p>
       </form>
     </>
   );
